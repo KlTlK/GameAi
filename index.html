@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101713" />
+    <meta name="description" content="Атмосферная 3D-рулетка на виртуальные фишки." />
+    <title>VELVET — клуб виртуальной рулетки</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <a href="./" class="brand" aria-label="Velvet, на главную"><span class="brand-icon">✳</span><span>VELVET<small>ROULETTE CLUB</small></span></a>
+        <div class="top-center"><span class="live-dot"></span> СТОЛ ОТКРЫТ <span class="top-divider"></span> ЕВРОПЕЙСКАЯ РУЛЕТКА</div>
+        <div class="balance"><span class="balance-icon">◈</span><span><small>ВАШ БАЛАНС</small><strong id="balance">2 500</strong></span><button id="reset" title="Пополнить баланс" aria-label="Пополнить баланс">+</button></div>
+      </header>
+
+      <main class="layout">
+        <section class="experience" aria-label="Игровой стол">
+          <div class="intro"><div class="eyebrow"><span></span> ДОБРО ПОЖАЛОВАТЬ В КЛУБ</div><h1>Всё дело<br>в <em>удаче.</em></h1><p>Ваш стол уже ждёт. Сделайте ставку<br class="desktop"> и позвольте колесу решить остальное.</p></div>
+          <div class="scene-wrap"><canvas id="scene" aria-label="Трёхмерное колесо рулетки"></canvas><div class="scene-halo"></div><div class="scene-caption"><span class="caption-line"></span> СДЕЛАЙТЕ ВАШИ СТАВКИ <span class="caption-line"></span></div><div class="scene-loading" id="loading">ГОТОВИМ ВАШ СТОЛ...</div></div>
+          <div class="experience-footer"><div class="table-id"><span class="table-icon">✳</span><span><strong>THE VELVET TABLE</strong><small>СТОЛ № 01 · ЕВРОПЕЙСКАЯ РУЛЕТКА</small></span></div><button class="text-button" id="rules-open">ПРАВИЛА ИГРЫ <span>↗</span></button></div>
+        </section>
+
+        <aside class="play-panel" aria-label="Управление игрой">
+          <div class="panel-heading"><div><div class="eyebrow"><span></span> ВАША ИГРА</div><h2>Сделайте ставку<span>.</span></h2></div><span class="panel-number">01 / 01</span></div>
+          <div class="panel-separator"></div>
+          <div class="section-heading"><span>01</span><h3>ВЫБЕРИТЕ ЦВЕТ</h3><span class="section-line"></span></div>
+          <div class="bet-grid" role="group" aria-label="Цвет ставки">
+            <button class="bet-option selected" data-bet="red" aria-pressed="true"><span class="bet-symbol red-symbol">◆</span><strong>Красное</strong><small>ВЫПЛАТА ×2</small><span class="check">✓</span></button>
+            <button class="bet-option" data-bet="black" aria-pressed="false"><span class="bet-symbol black-symbol">◆</span><strong>Чёрное</strong><small>ВЫПЛАТА ×2</small><span class="check">✓</span></button>
+            <button class="bet-option green-option" data-bet="green" aria-pressed="false"><span class="bet-symbol green-symbol">0</span><strong>Зеро</strong><small>ВЫПЛАТА ×36</small><span class="check">✓</span></button>
+          </div>
+          <div class="section-heading amount-heading"><span>02</span><h3>РАЗМЕР СТАВКИ</h3><span class="section-line"></span></div>
+          <div class="amount-row"><span>Сумма ставки</span><strong><span id="stake">100</span> <i>ФИШЕК</i></strong></div>
+          <div class="chips" role="group" aria-label="Размер ставки"><button class="chip chip-25" data-stake="25"><span>25</span></button><button class="chip chip-50" data-stake="50"><span>50</span></button><button class="chip chip-100 selected" data-stake="100"><span>100</span></button><button class="chip chip-250" data-stake="250"><span>250</span></button><button class="chip chip-500" data-stake="500"><span>500</span></button></div>
+          <button id="spin" class="spin-button"><span>КРУТИТЬ КОЛЕСО</span><span class="spin-arrow">↗</span></button>
+          <p class="game-message" id="message" aria-live="polite">Выберите ставку и испытайте удачу.</p>
+          <div class="recent"><div class="recent-heading"><span>ПОСЛЕДНИЕ ЧИСЛА</span><span>ИСТОРИЯ СТОЛА</span></div><div id="history" class="history"><span class="empty-history">Здесь появятся результаты игры</span></div></div>
+          <div class="panel-note"><span>✧</span> Только виртуальные фишки. Просто игра.</div>
+        </aside>
+      </main>
+      <footer class="site-footer"><span>© 2026 VELVET ROULETTE CLUB</span><span>СОЗДАНО ДЛЯ УДОВОЛЬСТВИЯ <b>✳</b></span><span>ИГРАЙТЕ РАДИ ИГРЫ</span></footer>
+    </div>
+    <dialog id="rules"><div class="dialog-top"><span class="eyebrow"><span></span> КОРОТКО О ГЛАВНОМ</span><button id="rules-close" aria-label="Закрыть">×</button></div><h2>Правила игры<span>.</span></h2><p>Перед вами европейская рулетка с числами от 0 до 36. Выберите цвет и размер ставки, затем запустите колесо.</p><ul><li><b>Красное или чёрное</b> — выигрыш в 2 раза больше ставки.</li><li><b>Зеро</b> — выигрыш в 36 раз больше ставки.</li><li>Если цвет не совпал, ставка проиграна. Зеро не относится ни к красному, ни к чёрному.</li></ul><p>Все фишки виртуальные, не имеют денежной ценности и сохраняются только в этом браузере. Кнопка «+» возвращает баланс к 2 500 фишкам.</p><button id="rules-ok" class="spin-button">ПОНЯТНО <span>↗</span></button></dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
